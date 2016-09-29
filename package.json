@@ -1,0 +1,19 @@
+{
+  "name": "hypermnesia",
+  "version": "0.0.1",
+  "description": "A fast and lightweight NodeJS cache tool.",
+  "author": "Pedro Mendes <pedrolopesme@gmail.com>",
+	"main": "lib/hypermnesia.js",
+	"license" : "MIT",
+  "repository" :{ 
+    "type" : "git",
+    "url" : "https://github.com/pedrolopesme/hypermnesia.git"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "devDependencies": {
+    "jasmine-node": "~1.14.5",
+    "uglify-js" : "~2.7.3"
+  }
+}
