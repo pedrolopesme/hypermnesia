@@ -38,7 +38,7 @@ These are the main modules that make up Hypermnesia:
 
 | module | tests | version | description |
 |---|---|---|---|
-| **[hypermnesia][hypermnesia]** |  [![][hypermnesia-timg]][hypermnesia-turl] | [![][hypermnesia-nimg]][hypermnesia-nurl]  | **torrent client (this module)**
+| **[hypermnesia][hypermnesia]** |  [![][hypermnesia-timg]][hypermnesia-turl] | [![][hypermnesia-nimg]][hypermnesia-nurl]  | **cache lib (this module)**
 | **[jsplay][jsplay]** |  [![][jsplay-timg]][jsplay-turl] | [![][jsplay-nimg]][jsplay-nurl]  | Splay Tree NodeJS module
 
 [hypermnesia]: https://github.com/pedrolopesme/hypermnesia
