@@ -9,6 +9,10 @@
 
 <h4 align="center">A fast and lightweight NodeJS cache tool.</h4>
 
+<p align="center">
+  <a href="https://travis-ci.org/pedrolopesme/hypermnesia"><img src="https://api.travis-ci.org/pedrolopesme/hypermnesia.png?branch=master" alt="Travis Builds"></a>
+</p>
+<br>
 
 ### Installing module
 
@@ -27,6 +31,29 @@ Just run:
 Tests were write using [Jasmine](http://jasmine.github.io/). In order to run them, just type:
 
 `$ npm test` 
+
+### Modules
+
+These are the main modules that make up Hypermnesia:
+
+| module | tests | version | description |
+|---|---|---|---|
+| **[hypermnesia][hypermnesia]** |  [![][hypermnesia-timg]][hypermnesia-turl] | [![][hypermnesia-nimg]][hypermnesia-nurl]  | **torrent client (this module)**
+| **[jsplay][jsplay]** |  [![][jsplay-timg]][jsplay-turl] | [![][jsplay-nimg]][jsplay-nurl]  | Splay Tree NodeJS module
+
+[hypermnesia]: https://github.com/pedrolopesme/hypermnesia
+[hypermnesia-timg]: https://api.travis-ci.org/pedrolopesme/hypermnesia.png?branch=master
+[hypermnesia-turl]: https://travis-ci.org/pedrolopesme/hypermnesia
+[hypermnesia-nimg]: https://img.shields.io/npm/v/hypermnesia.svg
+[hypermnesia-nurl]: https://www.npmjs.com/package/hypermnesia
+
+[jsplay]: https://github.com/pedrolopesme/jsplay
+[jsplay-timg]: https://api.travis-ci.org/pedrolopesme/jsplay.png?branch=master
+[jsplay-turl]: https://travis-ci.org/pedrolopesme/jsplay
+[jsplay-nimg]: https://img.shields.io/npm/v/JSplay.svg
+[jsplay-nurl]: https://www.npmjs.com/package/JSplay
+
+
 
 ### Build and Running Docker Image
 
