@@ -53,4 +53,24 @@ describe("Hypermnesia", function(){
         cache.remove(1);
     });
 
+
+    it("Should allow remove all elements from cache", function(){
+        cache = new hypermnesia(function(key){
+            return Math.floor((Math.random() * 100000) + 1);
+        });
+        var item1 = cache.get(1);
+        var item2 = cache.get(2);
+        var item3 = cache.get(3);
+
+        expect(cache.get(1)).toBe(item1);
+        expect(cache.get(2)).toBe(item2);
+        expect(cache.get(3)).toBe(item3);
+
+        cache.removeAll();
+
+        expect(cache.get(1)).not.toBe(item1);
+        expect(cache.get(2)).not.toBe(item2);
+        expect(cache.get(3)).not.toBe(item3);
+    });
+
 }); 
