@@ -35,4 +35,22 @@ describe("Hypermnesia", function(){
         expect(cache.get(1)).toBe(null);
     });
 
+    it("Should allow remove a item by its key from cache", function(){
+        cache = new hypermnesia(function(key){
+            return Math.floor((Math.random() * 100000) + 1);
+        });
+        var item1 = cache.get(1);
+        expect(cache.get(1)).toBe(item1);
+
+        cache.remove(1);
+        expect(cache.get(1)).not.toBe(item1);
+    });
+
+    it("Should behave properly when trying to remove from cache a non-existent element", function(){
+        cache = new hypermnesia(function(key){
+            return Math.floor((Math.random() * 100000) + 1);
+        });
+        cache.remove(1);
+    });
+
 }); 
