@@ -45,7 +45,6 @@ describe("Hypermnesia", function(){
         cache.remove(1);
     });
 
-
     it("Should allow remove all elements from cache", function(){
         var item1 = cache.get(1);
         var item2 = cache.get(2);
@@ -60,6 +59,18 @@ describe("Hypermnesia", function(){
         expect(cache.get(1)).not.toBe(item1);
         expect(cache.get(2)).not.toBe(item2);
         expect(cache.get(3)).not.toBe(item3);
+    });
+
+    it("Should refresh an item", function(){
+        var item1 = cache.get(1);
+        expect(cache.get(1)).toBe(item1);
+
+        var item1Refreshed = cache.refresh(1);
+        expect(item1).not.toBe(item1Refreshed);
+    });
+
+    it("Should return null when tried to refresh an inexistent item", function(){
+        expect(cache.refresh(1)).toBe(null);
     });
 
 }); 
