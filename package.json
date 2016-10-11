@@ -13,7 +13,7 @@
     "test": "make test"
   },
   "dependencies": {
-    "JSplay" : "1.0.0" 
+    "JSplay" : "1.0.1" 
   },
   "devDependencies": {
     "jasmine-node": "~1.14.5",

@@ -73,4 +73,62 @@ describe("Hypermnesia", function(){
         expect(cache.refresh(1)).toBe(null);
     });
 
+    it("Should know how many items are cached", function(){
+        var elementsTest = 1000;
+
+        // Increasing items
+        expect(cache.getTotal()).toBe(0);
+        for(var i = 1; i <= elementsTest; i++){
+            cache.get(i);
+            expect(cache.getTotal()).toBe(i);
+        }
+
+        // Decreasing items
+        for(var i = elementsTest; i >= 1; i--){
+            expect(cache.getTotal()).toBe(i);
+            cache.remove(i);
+        }
+        expect(cache.getTotal()).toBe(0);
+    });
+
+    it("Should allow use a max items limit and drop older itens whenever its necessary", function(){
+        var fetcherFunction = function(key){
+            return Math.floor((Math.random() * 100000) + 1);
+        };
+        var options = {
+            limit : 3
+        };
+        cache = new hypermnesia(fetcherFunction, options);
+        
+        cache.get(1);
+        cache.get(2);
+        cache.get(3);
+        expect(cache.getTotal()).toBe(3);
+
+        cache.get(4);
+        expect(cache.getTotal()).toBe(3);
+    });
+
+    it("Should not drop elements from cache when updates an item multiple times", function(){
+        var fetcherFunction = function(key){
+            return Math.floor((Math.random() * 100000) + 1);
+        };
+        var options = {
+            limit : 3
+        };
+        cache = new hypermnesia(fetcherFunction, options);
+        
+        cache.get(1);
+        cache.get(2);
+        var item3Value = cache.get(3);
+        expect(cache.getTotal()).toBe(3);
+
+        cache.refresh(3);
+        cache.refresh(3);
+        cache.refresh(3);
+        var item3UpdatedValue = cache.get(3);
+        expect(item3Value).not.toBe(item3UpdatedValue);
+        expect(cache.getTotal()).toBe(3);
+    });
+
 }); 
