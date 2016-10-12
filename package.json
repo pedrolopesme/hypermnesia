@@ -16,7 +16,7 @@
     "JSplay" : "1.0.1" 
   },
   "devDependencies": {
-    "jasmine-node": "~1.14.5",
+    "jasmine-node": "2.0.0-beta4",
     "uglify-js" : "~2.7.3"
   }
 }
