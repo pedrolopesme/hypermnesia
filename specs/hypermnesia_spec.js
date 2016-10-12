@@ -3,15 +3,12 @@ var hypermnesia = require("../lib/hypermnesia");
 describe("Hypermnesia", function(){
 
     var cache = null;
+    var fetcherFunction = function(key){
+        return Math.floor((Math.random() * 100000) + 1);
+    }
 
     beforeEach(function(){
-        cache = new hypermnesia(function(key){
-            return Math.floor((Math.random() * 100000) + 1);
-        });
-    });
-
-    it("Must receive a function in it's creation", function(){
-        expect(function(){ new hypermnesia() }).toThrow();
+        cache = new hypermnesia(fetcherFunction);
     });
 
     it("Should uses a given function in order to fetch fresh items and cache them", function(){
@@ -96,7 +93,7 @@ describe("Hypermnesia", function(){
             return Math.floor((Math.random() * 100000) + 1);
         };
         var options = {
-            limit : 3
+            "limit" : 3
         };
         cache = new hypermnesia(fetcherFunction, options);
         
@@ -109,12 +106,12 @@ describe("Hypermnesia", function(){
         expect(cache.getTotal()).toBe(3);
     });
 
-    it("Should not drop elements from cache when updates an item multiple times", function(){
+    it("Should not drop elements from cache when updates the same item multiple times", function(){
         var fetcherFunction = function(key){
             return Math.floor((Math.random() * 100000) + 1);
         };
         var options = {
-            limit : 3
+            "limit" : 3
         };
         cache = new hypermnesia(fetcherFunction, options);
         
@@ -130,5 +127,51 @@ describe("Hypermnesia", function(){
         expect(item3Value).not.toBe(item3UpdatedValue);
         expect(cache.getTotal()).toBe(3);
     });
+
+    describe("expiration system", function(){
+        var itemBeforeExpiration;
+        var itemAfterExpiration;
+
+        beforeEach(function(done) {
+            var options = {
+                "expiration" : 50
+            };
+            cache = new hypermnesia(fetcherFunction, options);
+
+            itemBeforeExpiration = cache.get(1);
+            setTimeout(function() {
+                itemAfterExpiration = cache.get(1);
+                done();
+            }, 100);
+        });
+
+        it("Should expire elements when times up.", function(){
+            expect(itemBeforeExpiration).not.toBe(itemAfterExpiration);
+        });
+    }); 
+
+    describe("expiration system", function(){
+
+        var itemBeforeExpiration;
+        var itemAfterExpiration;
+
+        beforeEach(function(done) {
+            var options = {
+                "expiration" : 300
+            };
+            cache = new hypermnesia(fetcherFunction, options);
+
+            itemBeforeExpiration = cache.get(1);
+            setTimeout(function() {
+                itemAfterExpiration = cache.get(1);
+                done();
+            }, 100);
+        });
+
+        it("Should not expire elements before times up.", function(){
+            expect(itemBeforeExpiration).toBe(itemAfterExpiration);
+        });
+    }); 
+
 
 }); 
