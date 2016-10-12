@@ -89,9 +89,6 @@ describe("Hypermnesia", function(){
     });
 
     it("Should allow use a max items limit and drop older itens whenever its necessary", function(){
-        var fetcherFunction = function(key){
-            return Math.floor((Math.random() * 100000) + 1);
-        };
         var options = {
             "limit" : 3
         };
@@ -107,9 +104,6 @@ describe("Hypermnesia", function(){
     });
 
     it("Should not drop elements from cache when updates the same item multiple times", function(){
-        var fetcherFunction = function(key){
-            return Math.floor((Math.random() * 100000) + 1);
-        };
         var options = {
             "limit" : 3
         };
@@ -129,6 +123,7 @@ describe("Hypermnesia", function(){
     });
 
     describe("expiration system", function(){
+
         var itemBeforeExpiration;
         var itemAfterExpiration;
 
