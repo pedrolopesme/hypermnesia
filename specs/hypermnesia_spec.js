@@ -122,6 +122,18 @@ describe("Hypermnesia", function(){
         expect(cache.getTotal()).toBe(3);
     });
 
+    it("Should allow add items directly to cache system without using the fetcher function", function(){
+        cache.add(1, 'one');
+        cache.add(2, 'two');
+        cache.add(3, 'tree');
+
+        expect(cache.getTotal()).toBe(3);
+        expect(cache.get(1)).toBe('one');
+        expect(cache.get(2)).toBe('two');
+        expect(cache.get(3)).toBe('tree');
+    });
+
+
     describe("expiration system", function(){
 
         var itemBeforeExpiration;
