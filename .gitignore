@@ -35,3 +35,9 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Removing shell scripts unless necessary
+*.sh
+
+# Removing OS-related files
+.DS_Store
