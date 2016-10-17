@@ -28,7 +28,7 @@ Generally, the Hypermnesia caching utilities are applicable whenever:
 * You are willing to spend some memory/network to improve speed.
 * You expect that keys will sometimes get queried more than once.
 * Your cache will not need to store more data than what would fit in RAM. 
-* Your cache data would expire afeter a certain amount of time
+* Your cache data would expire after a certain amount of time
 
 **Hypermnesia doesn't depend on any JS framework such as jQuery or similars.**
 
