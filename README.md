@@ -289,9 +289,9 @@ directly in your web app, like this:
 
 ### Installing module depencies
 
-Just run:
+Want to contribute? Clone this repo and type:
 
-`$ npm install hypermnesia`
+`$ npm install `
 
 ### Compressing source
 
@@ -304,6 +304,17 @@ Just run:
 Tests were write using [Jasmine](http://jasmine.github.io/). In order to run them, just type:
 
 `$ npm test` 
+
+
+### Build and Running Docker Image
+
+To build a docker image, you should just simply type: 
+
+`$ docker build -t pedrolopesme/hypermnesia .` 
+
+In order to run it, simply do: 
+
+`$ docker run pedrolopesme/hypermnesia` 
 
 ### Modules
 
@@ -326,17 +337,6 @@ These are the main modules that make up Hypermnesia:
 [jsplay-nimg]: https://img.shields.io/npm/v/JSplay.svg
 [jsplay-nurl]: https://www.npmjs.com/package/JSplay
 
-
-
-### Build and Running Docker Image
-
-To build a docker image, you should just simply type: 
-
-`$ docker build -t pedrolopesme/hypermnesia .` 
-
-In order to run it, simply do: 
-
-`$ docker run pedrolopesme/hypermnesia` 
 
 ### Credits
 
