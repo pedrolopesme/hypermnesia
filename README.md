@@ -276,9 +276,22 @@ $.get('https://myapi.com', function(results){
 
 ### Installing module
 
+You can install it via npm. Just run:
+
+`$ npm install hypermnesia`
+
+Or you can get a compressed version on dist/hypermnesia.min.js and use it 
+directly in your web app, like this:
+
+```html
+<script src="hypermnesia.min.js"></script>
+```
+
+### Installing module depencies
+
 Just run:
 
-`$ npm install`
+`$ npm install hypermnesia`
 
 ### Compressing source
 
